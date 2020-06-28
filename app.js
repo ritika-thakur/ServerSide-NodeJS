@@ -36,13 +36,23 @@ var leaderRoute = require('./routes/leaderRoute');
 
 var app = express();
 
+app.all('*', (req, res, next) => {
+  if (req.secure) {
+    next();
+  } else {
+    res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
+  }
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
 
@@ -61,12 +71,12 @@ app.use('/promotions', promoRouter);
 app.use('/leaders', leaderRoute);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -77,7 +87,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000, function () {
-      console.log("Server started successfully.");
-    });
-    
- module.exports = app;
+  console.log("Server started successfully.");
+});
+
+module.exports = app;
