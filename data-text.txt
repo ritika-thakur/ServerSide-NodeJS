@@ -1,0 +1,21 @@
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2NTNmZjExZTIzYjMyYTRiOTk3ZGIiL
+CJpYXQiOjE1ODkwMDc0NDYsImV4cCI6MTU4OTAxNDY0Nn0.SbX1YYO1p-LV2Arp4CffY2wjl-FWUCIsDjdA7yXviw4
+
+
+
+
+
+{
+	"name": "pizza",
+	"image": "someimge.png",
+	"category": "italian",
+	"label": "hot",
+	"price": "349.99",
+	"featured": "true",
+	"description": "A world famous italian fast food dish. Loved by all, contains loads of cheese and delicious sauses. Served with origano and chilliflakes if needed. Various types of pizzas are available with different types of toppings.",
+	"comments": []
+}
+
+
+admin token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2OGJiZTY4ZmNmZjAxYzBkMzE0YmEiLCJpYXQiOjE1ODkwMjc3MTgsImV4cCI6MTU4OTAzNDkxOH0.qYigZNRkJ3LQTlWqagWotuvARyg6UxP1ie0NLMa9tRA
