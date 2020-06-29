@@ -10,6 +10,13 @@ var passport = require('passport');
 var config = require('./config');
 var authenticate = require('./authenticate');
 
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+const dishRouter = require('./routes/dishRouter');
+var promoRouter = require('./routes/promoRouter');
+var leaderRoute = require('./routes/leaderRoute');
+var uploadRouter = require('./routes/uploadRouter');
+
 const Dishes = require('./models/dishes');
 
 const url = config.mongoUrl;
@@ -27,12 +34,6 @@ connect.then((db) => {
   console.log(err);
 });
 
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const dishRouter = require('./routes/dishRouter');
-var promoRouter = require('./routes/promoRouter');
-var leaderRoute = require('./routes/leaderRoute');
 
 var app = express();
 
@@ -69,6 +70,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
 app.use('/leaders', leaderRoute);
+app.use('/imageUpload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -86,7 +88,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function () {
+app.listen(5000, function () {
   console.log("Server started successfully.");
 });
 
