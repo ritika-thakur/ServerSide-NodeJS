@@ -22,7 +22,7 @@ router.get('/', cors.corsWithOptions, function (req, res, next) {
       }
     })
   } );
-});
+}); 
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
   User.register(new User({
